@@ -1,5 +1,38 @@
 import 'package:flutter/material.dart';
 
+import 'section_a/q1.dart';
+import 'section_a/q2.dart';
+import 'section_a/q3.dart';
+import 'section_a/q4.dart';
+import 'section_a/q5.dart';
+import 'section_a/q6.dart';
+import 'section_a/q7.dart';
+import 'section_a/q8.dart';
+import 'section_a/q9.dart';
+import 'section_a/q10.dart';
+
+import 'section_b/q1.dart';
+import 'section_b/q2.dart';
+import 'section_b/q3.dart';
+import 'section_b/q4.dart';
+import 'section_b/q5.dart';
+import 'section_b/q6.dart';
+import 'section_b/q7.dart';
+import 'section_b/q8.dart';
+import 'section_b/q9.dart';
+import 'section_b/q10.dart';
+
+import 'section_c/q1.dart';
+import 'section_c/q2.dart';
+import 'section_c/q3.dart';
+import 'section_c/q4.dart';
+import 'section_c/q5.dart';
+import 'section_c/q6.dart';
+import 'section_c/q7.dart';
+import 'section_c/q8.dart';
+import 'section_c/q9.dart';
+import 'section_c/q10.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -7,116 +40,85 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Assignment 2',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MenuScreen(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+class MenuScreen extends StatelessWidget {
+  const MenuScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: const Text('Practical Questions'),
+        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: .center,
-          children: [
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
+      body: ListView(
+        children: [
+          _buildSection(context, 'Section A - Easy Level', [
+            _tile(context, 'Q1: Stateless Widget', const Question1()),
+            _tile(context, 'Q2: Counter App', const Question2()),
+            _tile(context, 'Q3: Scaffold & FAB', const Question3()),
+            _tile(context, 'Q4: ListView.builder', const Question4()),
+            _tile(context, 'Q5: GridView.count', const Question5()),
+            _tile(context, 'Q6: Card Widget', const Question6()),
+            _tile(context, 'Q7: Drawer', const Question7()),
+            _tile(context, 'Q8: BottomNavigationBar', const Question8()),
+            _tile(context, 'Q9: Stack & Container', const Question9()),
+            _tile(context, 'Q10: Custom SectionTitle', const Question10()),
+          ]),
+          _buildSection(context, 'Section B - Moderate Level', [
+            _tile(context, 'Q1: Lifecycle Demo', const QuestionB1()),
+            _tile(context, 'Q2: LayoutBuilder Responsive', const QuestionB2()),
+            _tile(context, 'Q3: GridView.builder Product', const QuestionB3()),
+            _tile(context, 'Q4: Custom ProfileCard', const QuestionB4()),
+            _tile(context, 'Q5: Wrap Widget Skills', const QuestionB5()),
+            _tile(context, 'Q6: Badge Icon (Stack)', const QuestionB6()),
+            _tile(context, 'Q7: TabBar & TabBarView', const QuestionB7()),
+            _tile(context, 'Q8: Table Widget Settings', const QuestionB8()),
+            _tile(context, 'Q9: MediaQuery Responsive Form', const QuestionB9()),
+            _tile(context, 'Q10: AspectRatio Media Card', const QuestionB10()),
+          ]),
+          _buildSection(context, 'Section C - Hard Level', [
+            _tile(context, 'Q1: Responsive Dashboard', const QuestionC1()),
+            _tile(context, 'Q2: Custom Widget Library', const QuestionC2()),
+            _tile(context, 'Q3: E-commerce Stack/Wrap', const QuestionC3()),
+            _tile(context, 'Q4: To-Do List (setState)', const QuestionC4()),
+            _tile(context, 'Q5: Navigation Shell', const QuestionC5()),
+            _tile(context, 'Q6: Multi-tab Profile', const QuestionC6()),
+            _tile(context, 'Q7: News Feed (IntrinsicHeight)', const QuestionC7()),
+            _tile(context, 'Q8: Circular Avatar Overlap', const QuestionC8()),
+            _tile(context, 'Q9: Grouped Table Settings', const QuestionC9()),
+            _tile(context, 'Q10: Lifecycle Logger Utility', const QuestionC10()),
+          ]),
+        ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+    );
+  }
+
+  Widget _buildSection(BuildContext context, String title, List<Widget> children) {
+    return ExpansionTile(
+      title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+      children: children,
+    );
+  }
+
+  Widget _tile(BuildContext context, String title, Widget page) {
+    return ListTile(
+      title: Text(title),
+      trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => page)),
     );
   }
 }
